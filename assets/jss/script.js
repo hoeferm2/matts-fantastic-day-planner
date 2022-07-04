@@ -5,9 +5,9 @@
 //TODO: Compare current Hour to listed Hours (past, present, future)
 // set a constantly updating date
 //Local Storage Retrival
-var saveBtn = $(".saveBtn")
-var textArea = $("#eight-am-text")
-var toDoListDisplay = $("#todo-list-display")
+
+
+
 
 var dateToday = new Date();
 //console.log(dateToday)
@@ -74,27 +74,14 @@ function intialization() {
 //Starter functions
 intialization()
 
-
-
-
-
-
 function renderLastRegistered() {
     var toDoItem = localStorage.getItem("todo-item")
 
     toDoListDisplay.textContent = toDoItem
 
-    console.log(todoItem)
+    console.log(toDoItem)
 }
-
-
-
-
-
-
-
-
-saveBtn.addEventListener("click", function (event) {
+saveBtn.on("click", function (event) {
     event.preventDefault();
 
     var toDoItem = textArea.value;
@@ -103,3 +90,7 @@ saveBtn.addEventListener("click", function (event) {
     renderLastRegistered();
     console.log(renderLastRegistered)
 })
+
+var saveBtn = $(".saveBtn")
+var textArea = $("#eight-am-text")
+var toDoListDisplay = $("#todo-list-display")
