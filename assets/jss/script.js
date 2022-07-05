@@ -27,17 +27,17 @@ function displayCurrentHour() {
 
 }
 displayCurrentHour()
-function compareHour() {
-    if (curr) {
+// function compareHour() {
+//     if (curr) {
 
-    }
-    else if () {
+//     }
+//     else if () {
 
-    }
-    else () {
+//     }
+//     else () {
 
-    }
-}
+//     }
+// }// 
 //Set hour to 8 am
 var eightAm = dateToday.setHours(8);
 // console.log(moment(eightAm).format('hh a'))
