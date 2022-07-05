@@ -5,7 +5,11 @@
 //TODO: Compare current Hour to listed Hours (past, present, future)
 // set a constantly updating date
 //Local Storage Retrival
-
+var saveBtn = $(".saveBtn")
+var textArea = $("#textArea")
+var toDoListDisplay = $("#todo-list-display")
+var currentHourDisplay = document.querySelector("#currentHour")
+var tableRow = document.querySelectorAll("tr")
 
 
 
@@ -14,9 +18,29 @@ var dateToday = new Date();
 //need fuction to compare both values
 // currenthour
 var currentHour = dateToday.getHours();
+console.log(currentHour)
+//TODO: colorchange.
+function displayCurrentHour() {
+    currentHourDisplay.textContent = "The current hour is " + moment(currentHour).format("hh:mm a")
+    console.log(currentHour)
+    currentHourDisplay.setAttribute("data-time", currentHour)
+
+}
+displayCurrentHour()
+function compareHour() {
+    if (curr) {
+
+    }
+    else if () {
+
+    }
+    else () {
+
+    }
+}
 //Set hour to 8 am
 var eightAm = dateToday.setHours(8);
-console.log(moment(eightAm).format('hh a'))
+// console.log(moment(eightAm).format('hh a'))
 var nineAm = dateToday.setHours(9);
 var tenAm = dateToday.setHours(10)
 var elevenAm = dateToday.setHours(11)
@@ -73,7 +97,7 @@ function intialization() {
 }
 //Starter functions
 intialization()
-
+// WORK ON
 function renderLastRegistered() {
     var toDoItem = localStorage.getItem("todo-item")
 
@@ -84,13 +108,10 @@ function renderLastRegistered() {
 saveBtn.on("click", function (event) {
     event.preventDefault();
 
-    var toDoItem = textArea.value;
+    var toDoItem = textArea.val();
 
-    localStorage.setItem("todo-item", toDoItem)
+    localStorage.setItem($(this).data("time"), toDoItem)
     renderLastRegistered();
-    console.log(renderLastRegistered)
+    console.log(toDoItem)
 })
 
-var saveBtn = $(".saveBtn")
-var textArea = $("#eight-am-text")
-var toDoListDisplay = $("#todo-list-display")
