@@ -1,4 +1,3 @@
-
 //TODO:Format time column so each hour is based of of date/time js functions
 //TODO: 8 am as proof of concept.
 
@@ -8,40 +7,77 @@
 var saveBtn = $(".saveBtn")
 var textArea = $("#textArea")
 var toDoListDisplay = $("#todo-list-display")
-var currentHourDisplay = document.querySelector("#currentHour")
-var tableRow = document.querySelectorAll("tr")
+var currentDayDisplay = document.querySelector("#currentDay")
 
-
+var eightRow = document.querySelector("#eightAmRow")
+var nineRow = document.querySelector("#nineAmRow")
+var tenRow = document.querySelector("#tenAmRow")
+var elevenRow = document.querySelector("#elevenAmRow")
+var twelveRow = document.querySelector("#twelvePmRow")
+var oneRow = document.querySelector("#onePmRow")
+var twoRow = document.querySelector("#twoPmRow")
+var threeRow = document.querySelector("#threePmRow")
+var fourRow = document.querySelector("#fourPmRow")
+var fiveRow = document.querySelector("#fivePmRow")
+//This turns the tableRow into an array
+// var tableRow = [eightRow, nineRow, tenRow, elevenRow, twelveRow, oneRow, twoRow, threeRow, fourRow, fiveRow,]
+// console.log(tableRow[1])
 
 var dateToday = new Date();
-//console.log(dateToday)
-//need fuction to compare both values
-// currenthour
 var currentHour = dateToday.getHours();
 console.log(currentHour)
-//TODO: colorchange.
-function displayCurrentHour() {
-    currentHourDisplay.textContent = "The current hour is " + moment(currentHour).format("hh:mm a")
-    console.log(currentHour)
-    currentHourDisplay.setAttribute("data-time", currentHour)
 
+//TODO: to display current date.
+function displayCurrentDay() {
+    var displayDate = "The current date is " + moment().format('dddd MMMM, Do YYYY');
+    currentDayDisplay.textContent = displayDate
 }
-displayCurrentHour()
+displayCurrentDay()
+
+
 // function compareHour() {
-//     if (curr) {
 
-//     }
-//     else if () {
+//     //     for (let i = 0; i < tableRow.length; i++) {
+//     //         console.log(tableRow.getAttribute("data-time", ""))
 
+//     if (tableRow.getAttribute("data-time") < currentHour.getAttribute("data-time")) {
+//         tableRow.removeClass("future")
+//         tableRow.removeClass("present")
+//         tableRow.addClass("past")
+//     } else if (tableRow.getAttribute("data-time") > currentHour.getAttribute("data-time")) {
+//         tableRow.removeClass("past")
+//         tableRow.removeClass("present")
+//         tableRow.addClass("future")
 //     }
-//     else () {
+//     else if (tableRow.getAttribute("data-time") === currentHour.getAttribute("data-time")) {
+//         tableRow.removeClass("future")
+//         tableRow.removeClass("past")
+//         tableRow.addClass("present")
+//         //         if (tableRow.getAttribute("data-time") < currentHour.getAttribute("data-time")) {
+//         //             tableRow.removeClass("future")
+//         //             tableRow.removeClass("present")
+//         //             tableRow.addClass("past")
+//         //         } else if (tableRow.getAttribute("data-time") > currentHour.getAttribute("data-time")) {
+//         //             tableRow.removeClass("past")
+//         //             tableRow.removeClass("present")
+//         //             tableRow.addClass("future")
+//         //         }
+//         //         else if (tableRow.getAttribute("data-time") === currentHour.getAttribute("data-time")) {
+//         //             tableRow.removeClass("future")
+//         //             tableRow.removeClass("past")
+//         //             tableRow.addClass("present")
 
-//     }
-// }// 
+//         //         }
+//         //     }
+//         // }
+//         // compareHour()
+
+// 
 //Set hour to 8 am
 var eightAm = dateToday.setHours(8);
-// console.log(moment(eightAm).format('hh a'))
+console.log(eightAm)
 var nineAm = dateToday.setHours(9);
+console.log(nineAm);
 var tenAm = dateToday.setHours(10)
 var elevenAm = dateToday.setHours(11)
 var noonPm = dateToday.setHours(12)
@@ -50,7 +86,6 @@ var twoPm = dateToday.setHours(14)
 var threePm = dateToday.setHours(15)
 var fourPm = dateToday.setHours(16)
 var fivePm = dateToday.setHours(17)
-// all the workday hours have been combined
 var workDayAmPm = [eightAm, nineAm, tenAm, elevenAm, noonPm, onePm, twoPm, threePm, fourPm, fivePm];
 //To fill HOURS table column
 // for now use this 
@@ -74,7 +109,7 @@ var workDayColumnText = [eightBlock, nineBlock, tenBlock, elevenBlock, twelveBlo
 // takes text block content and turns it into formatted hour times.
 function intialization() {
     eightBlock.textContent = moment(workDayAmPm[0]).format("hh:00 a");
-    // console.log(eightBlock.textContent);
+    console.log(eightBlock.textContent);
     nineBlock.textContent = moment(workDayAmPm[1]).format("hh:00 a");
     // console.log(nineBlock.textContent);
     tenBlock.textContent = moment(workDayAmPm[2]).format("hh:00 a");
